@@ -188,3 +188,42 @@ function printAllPairs(n) {
 
 //outer loop is O(n) and inner loop is O(n)
     //n * n = n²
+
+//Simplifying Big-O Expressions
+    //when determining the time complexity of an algorithm
+        //constants don't matter
+        //O(2n) = O(n)
+        //O(500) = O(1) constant runtime
+    //Smaller Terms Don't Matter
+        // Object(n + 10) = O(n)
+        //O(n² + 5n + 8) = O(n²)
+//Big O Shorthands
+    //1. Arithmetic operations are constant
+        // 2 + 2 is going to roughly be the same as 1000 + 1000
+    //2. Variable assignment is constant
+        // x = 1 is roughly the same as x = 1000
+    //3. Accessing elements in an array (by index) or object (by key) is constant
+    //4. In a loop
+        // the complexity is the length fo the loop
+        //times the complexity of whatever happens inside the loop
+
+// function logAtLeast5(n) {
+//     for (var i = 1; i <= Math.max(5, n); i++) {
+//         console.log(i)
+//     }
+// } 
+//no matter what, will iterate the size of n
+//Big O(n)
+
+
+// function logAtMost5(n) {
+//     for (var i = 1; i <= Math.min(5, n); i++){
+//         console.log(i)
+//     }
+// }
+
+// logAtMost5(0)
+//loop will never start more than five times
+//as n grows, the time stays constant
+//Big O(1)
+
