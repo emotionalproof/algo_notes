@@ -60,3 +60,26 @@ function double(arr) {
 
 //Logarithm
 //log₂(value) = exponent  =>  2^exponent = value
+//can just say log instead of log₂ 
+    //since any log can be multiplied by a constant to turn into log₂
+
+//the logartithm of a number
+    //roughly measures the number of times you can divide that number by 2
+    //before you get a value that's less than or equal to one
+
+//example
+// 8/2 === 4; 4/2 === 2; 2/2 === 1. //=> 3
+
+//logarithmic time complexity is great!
+
+//certain searching algo's have log time complexity
+//efficient sorting algos involve log
+//recursion sometime involves log space complexity
+
+//Recap
+//To analyze the performance of an algorithm, we use Big O notation
+//Big O notation can give us a high level understanding of time or space complexity of an algorithms
+//Big O notation doesn't care about precision
+    //only about general trends (linear? quadratic? constant?)
+//The time or space complexity (as measured by Big O)
+    //depends only on the algorithm, not the hardware used to run the algo
