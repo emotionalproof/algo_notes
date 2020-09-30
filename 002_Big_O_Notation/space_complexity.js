@@ -58,3 +58,5 @@ function double(arr) {
 //O(n) space
 
 
+//Logarithm
+//log₂(value) = exponent  =>  2^exponent = value
