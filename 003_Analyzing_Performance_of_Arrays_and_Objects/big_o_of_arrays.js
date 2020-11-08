@@ -41,7 +41,7 @@ let values = [true, {}, [], 2, "awesome"]
     //changes the contents of an array by removing existing elements and/or adding new elements
     //let months = ['Jan', 'March', 'April', 'June']
     //
-//sort )(n log n)
+//sort O(n log n)
 //forEach/map/filter/reduce/etc - O(n)
 
 
@@ -78,3 +78,39 @@ const findKeyMaxValue = obj => {
 }
 
 findKeyMaxValue(hash)
+
+// function areThereDuplicates(arr) {
+//     let frequencyCounter = {}
+//     for (let i=0; i < arr.length; i++) {
+//       let value = arr[i]
+//       frequencyCounter[value] = (frequencyCounter[value] || 0) + 1;
+//     }
+//     console.log(frequencyCounter)
+//     for (let key in frequencyCounter) {
+//         if (frequencyCounter[key] > 1) {
+//             return true;
+//         }
+//     }
+//     return false;
+//   }
+  
+
+// let array = [1, 1, 2, 3, 4, 4]
+
+// console.log(areThereDuplicates(array))
+
+//shift and unshift, linear time
+//Slice returns copy of part of an array or entire thing
+    //depends on how many elements we want to copy
+    //linear
+//Splice
+    //versitile
+    //generally O(n)
+    //may be slightly less but asymp O(n)
+
+//sort O(n log n)
+    //slightly more than linear
+
+//push/pop constant time
+//better to add and remove from the end
+//add/remove from beginning or middle will cause a change of index to each subsequent index
