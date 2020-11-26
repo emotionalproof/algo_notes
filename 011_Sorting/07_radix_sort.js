@@ -27,3 +27,22 @@
 //then take the numbers in the order they are in the buckets
 // repeat process by second digit. 
 //if the number doesn't have a second digit, they stay in the zero bucket
+//number of times to loop is based on number of digits of the largest number   
+
+
+// function digits(num) {
+//     let digits = []
+//     while (num > 0) {
+//         let digit = Math.floor(num % 10)
+//         digit /= 10
+//     }
+// }
+
+// const radixSort(arr) {
+
+// }
+
+
+const getDigit = (num, place) => {
+
+}
