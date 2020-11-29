@@ -39,10 +39,102 @@
 // }
 
 // const radixSort(arr) {
-
+//     let i = 0
+    
 // }
 
 
-const getDigit = (num, place) => {
+// const getDigit = (num, place) => {
+//     let numStr = num.toString()
+//     let digitStr
+//     if (place <= numStr.length){
+//         let digit = numStr.length - 1 - place
+//         digitStr = numStr[digit]
+//     }
 
+//     return digitStr 
+// }
+
+//works but calls first digit 1 and not 0
+// const getDigit = (num, place) => {
+//     let digitPlace = 10**place
+//     let digit = Math.floor((num % digitPlace)/10**(place - 1))
+//     return digit
+// }
+
+// //digits start at 0
+// const getDigit = (num, i) => {
+//     return Math.floor((Math.abs(num) % Math.pow(10, i + 1)))
+// }
+
+
+
+//from Colt
+// const getDigit = (num, i) => {
+//     return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10
+// }
+
+// console.log(getDigit(-12345, 2))
+
+
+// const digitCount = num => {
+//     return num.toString().length
+// }
+
+// const digitCount = num => {
+//     let digits = 0
+//     while (num >= 1) {
+//         num /= 10
+//         digits++
+//     }
+//     return digits
+// }
+
+
+const getDigit = (num, i) => {
+    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10
 }
+
+const digitCount = num => {
+    if (num === 0) return 1
+    return Math.floor(Math.log10(Math.abs(num))) + 1
+}
+
+const mostDigits = arr => {
+    let max = 0
+    for (let i = 0; i < arr.length; i++) {
+        max = Math.max(max, digitCount(arr[i]))
+    }
+    return max
+}
+
+const radixSort = arr => {
+    let loops = mostDigits(arr)
+    for (let i = 0; i < loops; i++) {
+        // let buckets = [[],[],[],[],[],[],[],[],[],[]]
+        let buckets = Array.from({length: 10}, () => [])
+        for (let j = 0; j < arr.length; j++) {
+            let digit = getDigit(arr[j], i)
+            buckets[digit].push(arr[j])
+        }
+        // let newArr = buckets[0].concat(buckets[1]).concat(buckets[2]).concat(buckets[3]).concat(buckets[4]).concat(buckets[5]).concat(buckets[6]).concat(buckets[7]).concat(buckets[8]).concat(buckets[9])
+        arr = [].concat(...buckets)
+    }
+    return arr
+}
+
+
+let arr = [ 9, 8, 7, 6, 5, 4,3, 2, 1,10]
+
+
+console.log(radixSort(arr))
+
+
+// big O
+// Time
+//n = length of array; k = number of digits 
+// best: O(nk), Ave: O(nk), Worst O(nk)
+//if all numbers are unique, than k has to be at least log n
+
+//Space
+//O(n + k)
