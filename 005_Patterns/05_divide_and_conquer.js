@@ -4,6 +4,10 @@
 //this pattern can tremendously decrease time complexity
 
 
+
+
+
+
 // const binarySearch = (array, target) => {
 //     let startIndex = 0;
 //     let endIndex = array.length - 1;

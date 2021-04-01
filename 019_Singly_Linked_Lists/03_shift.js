@@ -104,6 +104,7 @@ class SinglyLinkedList {
             this.tail = newNode
         }
         this.length++
+        return this
     }
 
     pop() {
@@ -124,6 +125,37 @@ class SinglyLinkedList {
         }
         this.length--
         return current.val
+
+        // if (!this.head) return undefined
+
+        // let current = this.head
+        // let newTail = current
+
+        // while (current.next) {
+        //     newTail = current
+        //     current = current.next
+        // }
+        // this.tail = newTail
+        // this.tail.next = null
+        // this.length--
+        // return current 
+
+    }
+
+    shift() {
+        if (this.length === 0) return undefined
+        let oldHead = this.head
+        this.head = oldHead.next
+        this.length--
+        if (this.length === 0) this.tail = null
+        return oldHead
+    }
+
+    unshift(val) {
+        let newNode = new Node(val)
+        newNode.next = this.head
+        this.head = newNode
+        return this.
     }
 }
 
@@ -132,17 +164,16 @@ let list = new SinglyLinkedList()
 list.push("hello")
 list.push("goodbye")  
 console.log(list)
-console.log(list.pop())
-console.log(list)
 list.push('donkey')
 console.log(list)
 list.push('snake')
 console.log(list)
-console.log(list.pop())
+console.log(list.shift())
 console.log(list)
-console.log(list.pop())
+
+console.log(list.shift())
 console.log(list)
-console.log(list.pop())
+console.log(list.shift())
 console.log(list)
-console.log(list.pop())
+console.log(list.shift())
 console.log(list)

@@ -225,7 +225,7 @@ function findPattern(string, pattern) {
     return count
 }
 
-let string = "swoswosw"
-let pattern = "swosw"
+let string = "swosgowgosw"
+let pattern = "go"
 
 console.log(findPattern(string, pattern))

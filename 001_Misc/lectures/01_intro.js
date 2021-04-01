@@ -3,28 +3,83 @@
 const chaseDiv = (a, b) => {
     let count = 0
 
-    while (a >= b) {
+    while (a > b) {
         a -= b
         count++
-    }
+    } 
 
     return count
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const chaseDiv = (a, b) => {
+//     let count = 0
+
+//     while (a >= b) {
+//         a -= b
+//         count++
+//     }
+
+//     return count
+// }
 
 console.log(chaseDiv(10,3))
 
 
 
-// 10/3; 0  10 ; 1 7 ; 2 4 ; 3 1 
+//search
 
 
 
 
 
-//O(1) constant time
-// const constantTimeFnc = array => {
-//     return array[0]
-// }
+
+//sort
+
+
+
+
+
+
+
+
+
+
+
+
+// Big O Notation
+// 
+
+
+
+
+
+
+
+// n = input size
+
+
+
+O(1) constant time
+const constantTimeFnc = array => {
+    return array[1]
+}
 
 
 
@@ -32,6 +87,29 @@ console.log(chaseDiv(10,3))
 
 
 //O(log n)
+//binary search 
+
+// logarithm or log 
+// time complexity = log₂(n)
+
+
+// (2 ^ number of operations) = n
+// the number of operations is equal to 2 to the power of the input size
+
+// n = 1
+// 0 = log₂(1)
+
+// n = 2
+// 1 = log₂(2)
+
+// n = 4
+// 2 = log₂(4)
+
+// n = 8
+// 3 = log₂(8)
+
+// n = 16
+// 4 = log₂(16)
 
 
 
@@ -40,20 +118,23 @@ console.log(chaseDiv(10,3))
 //O(n) linear time
 // n
 // n
-// const linearTime = array => {
-
-// }
+const linearTime = array => {
+    //loop
+}
 
 
 
 //O(n log n)
+//sorting algorithms
 
 
 
 
-//O(n²) quadratic time 
-
-
+//O(n*n) quadratic time 
+//insertion sort
+const quadTime = array => {
+    
+}
 
 
 
@@ -66,6 +147,7 @@ console.log(chaseDiv(10,3))
 
 
 //O(2ⁿ)
+
 
 
 
