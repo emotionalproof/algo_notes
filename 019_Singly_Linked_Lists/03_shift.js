@@ -108,6 +108,7 @@ class SinglyLinkedList {
     }
 
     pop() {
+        console.log('pop')
         if (this.length === 0) return undefined
 
         let current = this.head
@@ -124,7 +125,7 @@ class SinglyLinkedList {
             this.tail.next = null
         }
         this.length--
-        return current.val
+        return current
 
         // if (!this.head) return undefined
 
@@ -143,6 +144,7 @@ class SinglyLinkedList {
     }
 
     shift() {
+        console.log('shift')
         if (this.length === 0) return undefined
         let oldHead = this.head
         this.head = oldHead.next
@@ -153,9 +155,61 @@ class SinglyLinkedList {
 
     unshift(val) {
         let newNode = new Node(val)
+        if (this.length === 0) this.tail = newNode
         newNode.next = this.head
         this.head = newNode
-        return this.
+        this.length++
+        return newNode
+    }
+
+    get(index) {
+        console.log('get')
+        if (this.length === 0 || index >= this.length) return null 
+        let count = 0
+        let current = this.head
+        while (count < index) {
+            current = current.next
+            count++
+        }
+        return current
+    }
+
+    set(index, value) {
+        let node = this.get(index)
+        if (!node){
+            return false
+        } else {
+            node.val = value
+            return true
+        }
+    }
+
+    insert(index, value) {
+        if (index < 0 || index > this.length) return false
+        if (index === 0) return !!this.unshift(value)
+        if (index === this.length) return !!this.push(value)
+
+        let prevNode = this.get(index - 1)
+        let newNode = new Node(value)
+        newNode.next = prevNode.next
+        prevNode.next = newNode
+        this.length++
+        return true 
+    }
+
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined
+        if (index === 0) return this.shift()
+        if (index === this.length - 1) return this.pop()
+
+        let prevNode = this.get(index - 1)
+        prevNode.next = prevNode.next.next
+        this.length--
+        return true
+    }
+
+    reverse() {
+        
     }
 }
 
@@ -171,9 +225,33 @@ console.log(list)
 console.log(list.shift())
 console.log(list)
 
-console.log(list.shift())
+// console.log(list.shift())
+// console.log(list)
+// console.log(list.shift())
+// console.log(list)
+// console.log(list.shift())
+// console.log(list)
+// console.log(list.unshift(""))
+// console.log(list)
+// console.log(list.unshift("3"))
+// console.log(list)
+// console.log(list.unshift("2"))
+// console.log(list)
+// console.log(list.unshift("1"))
+// console.log(list)
+// console.log(list.unshift("0"))
+// console.log(list)
+console.log(list.set(1, "rick"))
 console.log(list)
-console.log(list.shift())
+console.log(list.length)
+console.log(list.insert(2,3))
 console.log(list)
-console.log(list.shift())
+console.log(list.length)
+console.log(list.remove(3))
 console.log(list)
+console.log(list.length)
+
+
+
+
+
