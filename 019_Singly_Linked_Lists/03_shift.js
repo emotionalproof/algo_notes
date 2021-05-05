@@ -108,24 +108,40 @@ class SinglyLinkedList {
     }
 
     pop() {
-        console.log('pop')
-        if (this.length === 0) return undefined
-
+        if (!this.head) return undefined
         let current = this.head
-        let previous = null
+        let newTail = current
 
         while (current.next) {
-            previous = current
+            newTail = current 
             current = current.next
         }
-        this.tail = previous
-        if (!this.tail){
-            this.head = null
-        } else {
-            this.tail.next = null
-        }
+        this.tail = newTail
+        this.tail.next = null
         this.length--
-        return current
+        if(this.length === 0) {
+            this.head = null
+            this.tail = null
+        }
+        return current 
+
+        // if (!this.head) return undefined
+
+        // let current = this.head
+        // let previous = null
+
+        // while (current.next) {
+        //     previous = current
+        //     current = current.next
+        // }
+        // this.tail = previous
+        // if (!this.tail){
+        //     this.head = null
+        // } else {
+        //     this.tail.next = null
+        // }
+        // this.length--
+        // return current
 
         // if (!this.head) return undefined
 
@@ -139,12 +155,15 @@ class SinglyLinkedList {
         // this.tail = newTail
         // this.tail.next = null
         // this.length--
+        //if(this.length === 0) {
+        //     this.head = null
+        //     this.tail = null
+        // }
         // return current 
 
     }
 
     shift() {
-        console.log('shift')
         if (this.length === 0) return undefined
         let oldHead = this.head
         this.head = oldHead.next
@@ -159,12 +178,11 @@ class SinglyLinkedList {
         newNode.next = this.head
         this.head = newNode
         this.length++
-        return newNode
+        return this
     }
 
     get(index) {
-        console.log('get')
-        if (this.length === 0 || index >= this.length) return null 
+        if(index < 0 || index >= this.length) return null;
         let count = 0
         let current = this.head
         while (count < index) {
@@ -208,48 +226,84 @@ class SinglyLinkedList {
         return true
     }
 
-    reverse() {
-        
+// [goodbye,rick,3,snake]
+// [      , ,    ,goodbye] index 1, current: rick, prev: goodbye
+// [      , ,rick,goodbye] index 2, current: 3, prev: rick
+// [      ,3,rick,goodbye] index 3, current: snake, prev: 3
+// [ snake,3,rick,goodbye] index 4, current: , prev: snake
+// [ , , ,1] index 1
+// [ , , ,1] index 1
+
+    print() {
+        let arr = []
+        let current = this.head
+        while(current) {
+            arr.push(current.val)
+            current = current.next
+        }
+        console.log('print',arr)
     }
+
+    // reverse() {
+    //     // if (this.length === 0) return undefined
+    //     // if (this.length === 1) return this.head
+
+    //     let current = this.head.next
+    //     let prev = this.head
+    //     this.tail = prev
+    //     this.tail.next = null 
+    //     let next
+    //     for (let i = 1; i < this.length; i++){
+    //         next = current.next 
+    //         current.next = prev
+    //         prev = current
+    //         current = next
+    //     }
+    //     this.head = prev
+    //     return this
+    // }
+
+    reverse() {
+        let node = this.head
+        this.head = this.tail
+        this.tail = node
+        let prev = null
+        let next
+
+        for (let i = 0; i < this.length; i++){
+            next = node.next
+            node.next = prev
+            prev = node
+            node = next
+        }
+        return this
+    }
+
 }
+
+
+//Big O of Singly Linked Lists
+//Insertion O(1) it takes the same amount of time regardless of length
+//Removal - it depends ... O(1) or O(N)
 
 
 let list = new SinglyLinkedList()
 list.push("hello")
 list.push("goodbye")  
-console.log(list)
 list.push('donkey')
-console.log(list)
 list.push('snake')
-console.log(list)
-console.log(list.shift())
-console.log(list)
+// list.shift()
 
-// console.log(list.shift())
+// list.insert(0,3)
+
+list.print()
+list.reverse()
+list.print()
+
+list.set(1, 'test')
+list.print()
 // console.log(list)
-// console.log(list.shift())
-// console.log(list)
-// console.log(list.shift())
-// console.log(list)
-// console.log(list.unshift(""))
-// console.log(list)
-// console.log(list.unshift("3"))
-// console.log(list)
-// console.log(list.unshift("2"))
-// console.log(list)
-// console.log(list.unshift("1"))
-// console.log(list)
-// console.log(list.unshift("0"))
-// console.log(list)
-console.log(list.set(1, "rick"))
-console.log(list)
-console.log(list.length)
-console.log(list.insert(2,3))
-console.log(list)
-console.log(list.length)
-console.log(list.remove(3))
-console.log(list)
-console.log(list.length)
+// console.log('head', list.head, 'head.next', list.head.next, 'tail', list.tail)
 
 
 

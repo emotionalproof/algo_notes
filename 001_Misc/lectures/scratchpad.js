@@ -1,3 +1,6 @@
+let moment = require('moment')
+
+
 function test() {
     let counter = 0
 
@@ -106,4 +109,6 @@ function compareSets(set1, set2) {
     return result
 }
 
-console.log(stringPair(array))
+// console.log(stringPair(array))
+
+console.log(moment().isoWeekday(7) )
