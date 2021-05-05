@@ -47,14 +47,6 @@
 
 //Searching a BST
     //
-
-
-class BinarySearchTree {
-    constructor() {
-        this.root = null
-    }
-}
-
 class Node {
     constructor(value) {
         this.value = value
@@ -62,3 +54,101 @@ class Node {
         this.right = null
     }
 }
+
+class BinarySearchTree {
+    constructor() {
+        this.root = null
+    }
+
+    insert(val) {
+        let newNode = new Node(val)
+
+        function checkNode(current) {
+            if (!current) return newNode
+
+            if (val > current.value) {
+                current.right = checkNode(current.right)
+            } else if (val < current.value) {
+                current.left = checkNode(current.left)
+            }
+            return current
+        }
+        this.root = checkNode(this.root)
+        return this
+    }
+
+    // insert(val) {
+    //     let newNode = new Node(val)
+    //     if (!this.root) this.root = newNode
+    //     let current = this.root
+
+    //     while (current.value !== val) {
+    //         if (val > current.value) {
+    //             current.right ? current = current.right : current.right = newNode
+    //         } else if (val < current.value) {
+    //             current.left? current = current.left : current.left = newNode
+    //         }
+    //     }
+
+    //     return this
+        // let newNode = new Node(val)
+        // if (!this.root) this.root = newNode
+        // let current
+        // let next = this.root
+        // while (next) {
+        //     current = next
+        //     if (val > next.value) {
+        //         next = next.right
+        //     } else {
+        //         next = next.left
+        //     }
+        // }
+
+        // val > current.value ? current.right = newNode : current.left = newNode
+    // }
+
+    find(val) {
+        function search(current) {
+            if (!current) return null
+            if (current.value === val) return current
+            current = current.value < val ? search(current.right) : current = search(current.left)
+            return current
+        }
+        let current = search(this.root)
+        return current
+    }
+}
+
+
+
+//how BTS work
+    //every parent node has at most two children
+    //every node to the left of a parent node is always less than the parent
+    //every node to the right of a parent node is always greater than the parent
+    // this is done to make searching much fast 
+    //system of organization 
+
+let tree = new BinarySearchTree()
+tree.insert(10)
+tree.insert(15)
+tree.insert(20)
+tree.insert(6)
+tree.insert(8)
+// tree.insert(3)
+// tree.insert(13)
+// tree.insert(22)
+// tree.insert(19)
+
+// console.log(tree.root)
+console.log(tree.find(9))
+
+
+//Big O
+//Insertion O(log n)
+//Searching O(log n)
+
+// o(log n) is not guaranteed 
+//if the tree is lopsided, every child is greater than the parent
+    //valid BST but would mean you are not eliminating have of the input in each iteration
+    
+
