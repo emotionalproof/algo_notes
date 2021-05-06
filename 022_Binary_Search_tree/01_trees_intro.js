@@ -150,5 +150,6 @@ console.log(tree.find(9))
 // o(log n) is not guaranteed 
 //if the tree is lopsided, every child is greater than the parent
     //valid BST but would mean you are not eliminating have of the input in each iteration
-    
+//possible solution is to rewrite your tree from a middle value
+
 
