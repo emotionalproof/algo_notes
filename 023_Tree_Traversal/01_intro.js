@@ -3,9 +3,9 @@
 //travelling salesman 
 // route is easy if the graph is a SLL
 //what about a tree
-    //not a BST
-    //binary tree, unordered 
-    //would have to check every node to is a particular value was there
+//not a BST
+//binary tree, unordered 
+//would have to check every node to is a particular value was there
 //start with root
 //four common approaches 
 
@@ -22,8 +22,8 @@
 
 
 //two main approaches for traversing a tree
-    //Breadth-first Search
-    //Depth-first search 
+//Breadth-first Search
+//Depth-first search 
 //refer to the directions 
 
 
@@ -34,17 +34,18 @@
 // 
 
 //BFS
-    //think about moving across the tree levels/siblings
-    //[root, root.left, root.right, root.left.left, root.left.right, root.right.right]
+//think about moving across the tree levels/siblings
+//[root, root.left, root.right, root.left.left, root.left.right, root.right.right]
 //Depth-first Search or DFS
-    //three main orders
-    //primary direction is down and then going back up 
-    //InOrder
+//three main orders
+//primary direction is down and then going back up 
+//InOrder
 
 let str = "7 test tester Phenomenologically testertest testingn TestingTester testingtester"
+
 function madeOfWords(string) {
     let words = string.split(' ')
-    words = words.sort((a,b) => b.length - a.length)
+    words = words.sort((a, b) => b.length - a.length)
     word = words.map(word => word.toL)
     let matches = []
     for (let i = 0; i < words.length; i++) {
@@ -55,7 +56,7 @@ function madeOfWords(string) {
             }
         }
     }
-    console.log(matches)
+
 }
 
 madeOfWords(str)
