@@ -40,22 +40,3 @@
     //three main orders
     //primary direction is down and then going back up 
     //InOrder
-
-let str = "7 test tester Phenomenologically testertest testingn TestingTester testingtester"
-function madeOfWords(string) {
-    let words = string.split(' ')
-    words = words.sort((a,b) => b.length - a.length)
-    word = words.map(word => word.toL)
-    let matches = []
-    for (let i = 0; i < words.length; i++) {
-        let currentWord = words[i]
-        for (let j = i + 1; j < words.length; j++) {
-            if (currentWord.startsWith(words[j])) {
-                matches.push([currentWord, words[j].length])
-            }
-        }
-    }
-    console.log(matches)
-}
-
-madeOfWords(str)
