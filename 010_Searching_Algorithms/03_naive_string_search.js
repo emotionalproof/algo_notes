@@ -61,7 +61,7 @@ const naiveStringSearch = (str, pattern) => {
     let length = 0
     let l = 0
     for (let j = 0; j < str.length; j++) {
-        console.log({count, length, l, j})
+        // console.log({count, length, l, j})
         if (str[j] === pattern[l]) {
             length++
             l++
@@ -81,10 +81,67 @@ const naiveStringSearch = (str, pattern) => {
 // }
 
 
-console.log(naiveStringSearch('sloslslosl', 'slosl'))
+// console.log(naiveStringSearch('sloslslosl', 'slosl'))
 
 
+//nested loop
+//outer loop is starting point to check for pattern
+//inner loop is used to check subsequent characters
+//if char matches first char in pattern then increment to next char in pattern and in string
+//need variable to track pattern index
+//if pattern length is greater than string, return 0
+//variable to hold match count
+//return at the end
 
-chaseochachase
 
-chaseochase
+// 'doggoddog'
+// 'dog
+
+
+// const anotherNaiveSearch = (string, pattern) => {
+//     if (pattern.length > string.length) return 0
+//     let matches = 0;
+
+
+//     for (let i =0; i <= string.length - pattern.length; i++ ) {
+//       let pIndex = 0;
+//       for (let j = i; (j - i + 1) <= pattern.length; j++) {
+//         let currS = string[j];
+//         let currP = pattern[pIndex];
+//         if (currS === currP) {
+//           pIndex++
+//         } else {
+//           break
+//         }
+//       }
+//       if (pIndex === pattern.length) matches++;
+//       pIndex = 0;
+//     }
+//   return matches;
+// }
+
+
+const anotherNaiveSearch = (string, pattern) => {
+  if (pattern.length > string.length || pattern.length === 0) return 0
+  let matches = 0;
+  let pIndex = 0;
+
+  for (let i = 0; i <= string.length; i++ ) {
+    
+    if (pIndex === pattern.length) {
+      matches++;
+      i = i - pIndex + 1
+      pIndex = 0;
+    } 
+    
+    if (string[i] === pattern[pIndex]) {
+      pIndex++
+    } 
+ 
+  }
+return matches;
+}
+
+let str = 'dokwdokwdolakjsdfdokwdo';
+let pattern = 'dokwdo'
+console.log(anotherNaiveSearch(str, pattern))

@@ -1,9 +1,5 @@
-//write a function factorial which accepts a number and returns
-//the factorial of that number
-
-const factorial = num => {
-    if (num === 0) return 1
-    return num * factorial(num - 1)
+const flatter = () => {
+  eeeeeeeekkkkkkkkggfdfgghhhjfrtyjupuytgtgghhhhh
 }
 
 console.log(factorial(8))

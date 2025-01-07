@@ -1,6 +1,6 @@
 //non-recursive way 
     //iterative 
-//and the recursive way
+//and the recursive way ()
 
 //what is recursion 
     //a process that calls itself
@@ -61,39 +61,45 @@
 
 // console.log(factorial(num))
 
-//common recursion pitfalls
-    //missing or incorrect base case
-    //returning the wrong thing or not returning
-    //can cause a stack overflow
+// //common recursion pitfalls
+//     //missing or incorrect base case
+//     //returning the wrong thing or not returning
+//     //can cause a stack overflow
 
-//stack: LIFO
-//Queue: FIFO
+// //stack: LIFO
+// //Queue: FIFO
 
-function countDown(num) {
-    if (num <= 0) {
-        console.log("All done!")
-        return
-    }
-    console.log(num)
-    num--
-    countDown(num)
-}
+// function countDown(num) {
+//     if (num <= 0) {
+//         console.log("All done!")
+//         return
+//     }
+//     console.log(num)
+//     num--
+//     countDown(num)
+// }
 
 
-function collectOddValues(arr) {
-    let result = []
+// function collectOddValues(arr) {
+//     let result = []
 
-    function helper(helperInput) {
-        if (helperInput.length === 0) {
-            return 
-        }
+//     function helper(helperInput) {
+//         if (helperInput.length === 0) {
+//             return 
+//         }
 
-        if (helperInput[0] % 2 !== 0) {
-            result.push(helperInput[0])
-        }
-        helper(helperInput.slice(1))
-    }
+//         if (helperInput[0] % 2 !== 0) {
+//             result.push(helperInput[0])
+//         }
+//         helper(helperInput.slice(1))
+//     }
 
-    helper(arr)
-    return result
-}
+//     helper(arr)
+//     return result
+// }
+
+
+
+// x = total per person
+// 300 = x * 3/6
+
