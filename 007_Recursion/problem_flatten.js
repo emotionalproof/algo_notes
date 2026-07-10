@@ -114,34 +114,33 @@
 // console.log(deck)
 
 
-const flatten = arr => {
-    if (arr.length === 0) {
-        return []
-    }
-    let first
-    if (Array.isArray(arr[0])) {
-        first = flatten(arr[0])
-    } else {
-        first = [arr[0]]
-    }
 
-    let rest = flatten(arr.slice(1))
-    first.concat(rest)
-}
 
-function flatten(arr) {
-    if (arr.length === 0) {
-        return [];
-    }
-    let first;
-    if (Array.isArray(arr[0])) {
-        first = flatten(arr[0]);
-    } else {
-        first = [arr[0]];
-    }
-    const rest = flatten(arr.slice(1));
-    return first.concat(rest);
-}
+// function flatten(arr) {
+//     if (arr.length === 0) return []
+//     let flatArr = []
+//     for (let i = 0; i < arr.length; i++) {
+//         if (Array.isArray(arr[i])) {
+//             flatArr = flatArr.concat(flatten(arr[i]))
+//         } else {
+//             flatArr.push(arr[i])
+//         }
+//     }
+//     return flatArr
+// }
+
+// function flatten(arr) {
+//     if (arr.length === 0) return [];
+//     let flatArr = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         if (Array.isArray(arr[i])) {
+//             flatArr = flatArr.concat(flatten(arr[i]));
+//         } else {
+//             flatArr.push(arr[i]);
+//         }
+//     }
+//     return }flatArr;
+// }
 
 console.log(flatten([1, [2, [3, 4], [[5]]]])) // [1, 2, 3, 4, 5]
 // flatten([[1],[2],[3]]) // [1,2,3]

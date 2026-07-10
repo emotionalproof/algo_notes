@@ -61,7 +61,7 @@ let yDistance = 8
 // 5^2 + 8^2 = 25 + 64  = 89
 // √89
 
-class DataStructure() {
+class DataStructure {
     constructor() {
         // properties class should have
     }
@@ -74,4 +74,15 @@ class DataStructure() {
     static classMethod() {
         //almost never used
     }
+}
+
+
+class Test {
+  constructor(name, age, location) {
+    this.name = name;
+    this.age = age;
+    this.location = location
+  }
+
+  
 }

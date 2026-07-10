@@ -91,43 +91,43 @@
 // }
 
 
-const getDigit = (num, i) => {
-    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10
-}
+// const getDigit = (num, i) => {
+//     return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10
+// }
 
-const digitCount = num => {
-    if (num === 0) return 1
-    return Math.floor(Math.log10(Math.abs(num))) + 1
-}
+// const digitCount = num => {
+//     if (num === 0) return 1
+//     return Math.floor(Math.log10(Math.abs(num))) + 1
+// }
 
-const mostDigits = arr => {
-    let max = 0
-    for (let i = 0; i < arr.length; i++) {
-        max = Math.max(max, digitCount(arr[i]))
-    }
-    return max
-}
+// const mostDigits = arr => {
+//     let max = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         max = Math.max(max, digitCount(arr[i]))
+//     }
+//     return max
+// }
 
-const radixSort = arr => {
-    let loops = mostDigits(arr)
-    for (let i = 0; i < loops; i++) {
-        // let buckets = [[],[],[],[],[],[],[],[],[],[]]
-        let buckets = Array.from({length: 10}, () => [])
-        for (let j = 0; j < arr.length; j++) {
-            let digit = getDigit(arr[j], i)
-            buckets[digit].push(arr[j])
-        }
-        // let newArr = buckets[0].concat(buckets[1]).concat(buckets[2]).concat(buckets[3]).concat(buckets[4]).concat(buckets[5]).concat(buckets[6]).concat(buckets[7]).concat(buckets[8]).concat(buckets[9])
-        arr = [].concat(...buckets)
-    }
-    return arr
-}
-
-
-let arr = [ 9, 8, 7, 6, 5, 4,3, 2, 1,10]
+// const radixSort = arr => {
+//     let loops = mostDigits(arr)
+//     for (let i = 0; i < loops; i++) {
+//         // let buckets = [[],[],[],[],[],[],[],[],[],[]]
+//         let buckets = Array.from({length: 10}, () => [])
+//         for (let j = 0; j < arr.length; j++) {
+//             let digit = getDigit(arr[j], i)
+//             buckets[digit].push(arr[j])
+//         }
+//         // let newArr = buckets[0].concat(buckets[1]).concat(buckets[2]).concat(buckets[3]).concat(buckets[4]).concat(buckets[5]).concat(buckets[6]).concat(buckets[7]).concat(buckets[8]).concat(buckets[9])
+//         arr = [].concat(...buckets)
+//     }
+//     return arr
+// }
 
 
-console.log(radixSort(arr))
+// let arr = [ 9, 8, 7, 6, 5, 4,3, 2, 1,10]
+
+
+// console.log(radixSort(arr))
 
 
 // big O
@@ -138,3 +138,41 @@ console.log(radixSort(arr))
 
 //Space
 //O(n + k)
+
+const getDigit = (num, n) => {
+  num = Math.floor(Math.abs(num)/Math.pow(10, n))
+  return num % 10;
+}
+
+
+const getDigitCount = (num) => {
+  if (num === 0) return 1
+  return Math.floor(Math.log10(Math.abs(num))) + 1
+}
+
+const getMaxDigits = (arr) => {
+  let maxDigits = 0
+  for (let i = 0; i < arr.length; i++){
+    maxDigits = Math.max(maxDigits, getDigitCount(arr[i]))
+  }
+  return maxDigits
+}
+
+const radixSort = (arr) => {
+  let maxDigits = getMaxDigits(arr)
+  let i = 0
+  while (i < maxDigits) {
+    let buckets = Array.from({ length: 10 }, () => []);
+    for (let j = 0; j < arr.length; j++) {
+      let digit = getDigit(arr[j], i)
+      buckets[digit].push(arr[j])
+    }
+    i++
+    arr = [].concat(...buckets)
+  }
+  return arr
+}
+
+let arr = [999383934943, 2,3,1,99]
+
+console.log(radixSort(arr))

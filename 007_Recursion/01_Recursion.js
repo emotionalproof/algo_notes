@@ -103,3 +103,59 @@
 // x = total per person
 // 300 = x * 3/6
 
+class MaxHeap {
+  constructor() {
+    this.heap = []
+  }
+
+  getLeft = (index) => index * 2 + 1;
+  getRight = (index) => index * 2 + 2;
+  getParent = (index) => Math.floor((index - 1)/2)
+  swap = (index1, index2) => {
+    [this.heap[index1], this.heap[index2]] = [this.heap[index2], this.heap[index1]]
+  }
+
+
+  insert(value) {
+    this.heap.push(value);
+    bubbleUp();
+  }
+
+  bubbleUp() {
+    let index = this.heap.length - 1;
+    let parent = this.getParent(index);
+
+    while (index > 0 && this.heap[index] > this.heap[parent]) {
+      this.swap(index, parent)
+      index = parent;
+      parent = this.getParent(index)
+    }
+  }
+
+  extractMax() {
+    if (this.heap.length === 0) return null;
+    if (this.heap.length === 1) return this.heap.pop();
+    const max = this.heap[0];
+    this.heap[0] = this.heap.pop();
+    this.heapifyDown();
+    return max;
+  }
+
+  heapifyDown() {
+    let index = this.heap[0];
+    let left = this.getLeft(index);
+    let right = this.getRight(index);
+
+    while (left < this.heap.length) {
+      let largest = right < this.heap.length && this.heap[left] < this.heap[right] ?
+                    right : left;
+      if (this.heap[index] >= this.heap[largest]) break;
+      this.swap(index, largest);
+      index = largest;
+      left = this.getLeft(index)
+      right = this.getRight(index)
+    }
+  }
+
+
+}

@@ -1,13 +1,15 @@
-//two points
-//
-
-const insertionSort = arr => {
-
-  for (let i = 1; i < arr.length; i++) {
-    for (let j = 0; j < i; j++) {
-      if (arr[i] < arr[j]) {
-        [arr[i], arr[j]] = [arr[j], arr[i]]
-      }
+function insertionSort(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        let key = arr[i];
+        let j = i - 1;
+        while (j >= 0 && key < arr[j]) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key
     }
-  }
+    return arr
 }
+
+
+
